@@ -8,16 +8,20 @@ class MetatradeDataColector:
         self.start = _start
         self.end = _end
         self.interval = _interval
-        self.dataframe = pd.DataFrame(columns=['open', 'high', 'low', 'close'])  # Initialize the DataFrame with column names
-        self.path = f"{_path}/OrginalData/Metatrade{_symbol.replace('/', '-')}_{_start}_{_end}_{_interval}.csv"
+        self.dataframe = pd.DataFrame(columns=['tick','open', 'high', 'low', 'close','isstartcandel'])  # Initialize the DataFrame with column names
+        self.path= _path
 
-    def save_OCHL_info(self,datetime, open, high, low, close):
-        new_row = pd.DataFrame({'datetime': [datetime],'open': [open], 'high': [high], 'low': [low], 'close': [close]})
+
+    def save_OCHL_info(self,datetime, ticktime, open, high, low, close,isstartcandel):
+        new_row = pd.DataFrame({'datetime': [datetime],'tick': [ticktime],'open': [open], 'high': [high], 'low': [low], 'close': [close],'isstartcandel':[isstartcandel]})
         self.dataframe = pd.concat([self.dataframe, new_row], ignore_index=True)
         return self.dataframe
 
 #BTC-USD_2015-02-01_2023-07-12_1day.csv
-    def save_DF_to_csv(self):
+    def save_DF_to_csv(self, toDateTest):
+        self.end = toDateTest
+        self.path = f"{self.path}/OrginalData/Metatrade{self.symbol}_{self.start[0:10].replace('.','-')}_{self.end[0:10].replace('.','-')}_{self.interval}.csv"
+        #self.path = f"{self.path}/OrginalData/Metatrade.csv"
         df = self.dataframe.sort_index()
         self.dataframe.to_csv(self.path, index=True)
         return "Saved"
