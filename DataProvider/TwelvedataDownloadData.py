@@ -24,6 +24,7 @@ class TwelvedataDownloadData:
                 interval=self.interval,
                 outputsize=5000,
                 timezone="Asia/Singapore",  # "America/New_York",  # TODO
+                exchange="Binance",
                 start_date=self.start,
                 end_date=self.end
             )
