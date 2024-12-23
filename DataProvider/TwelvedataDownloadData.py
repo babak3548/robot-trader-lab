@@ -17,7 +17,7 @@ class TwelvedataDownloadData:
     def ifNotExistDownloda(self):
         if not os.path.exists(self.path):
             # Initialize client - apikey parameter is requiered
-            td = TDClient(apikey="f82e2cf8359a4189b7332f267aaa6320")
+            td = TDClient(apikey="YourApiKey")
             # Construct the necessary time series
             ts = td.time_series(
                 symbol=self.symbol,
