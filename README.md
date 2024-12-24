@@ -44,7 +44,7 @@ This project is designed to enable seamless integration with new data providers 
 
 ## Setup Instructions
 1. Clone the repository.
-2. Install required dependencies using:
+2. Install required dependencies.
 3. Configure API keys and data sources in the configuration file.
 4. Run data fetching and preprocessing scripts.
 5. Use the training module to test different ML algorithms.
