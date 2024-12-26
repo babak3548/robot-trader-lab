@@ -1,4 +1,4 @@
-# Machine Learning Prediction Project
+# Machine Learning Lab for Stocks 
 
 ## Overview
 This project is designed to enable seamless integration with new data providers and simplify testing machine learning (ML) and deep learning algorithms with minimal code changes. It is ideal for financial market analysis, including stocks, cryptocurrencies, and forex.
